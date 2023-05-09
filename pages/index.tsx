@@ -23,7 +23,7 @@ export default function Home() {
 
         </div>
       </section>
-      <section className='flex h-2/6 bg-slate-200'>
+      <section className='flex h-2/6 bg-slate-400'>
         <div>
         </div>
       </section>
