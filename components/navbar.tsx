@@ -3,14 +3,15 @@ import Link from "next/link";
 
 const Navbar = () => {
    return (
-      <nav className="flex flex-row justify-between m-5 p-5">
+      <nav className="hidden lg:flex flex-row justify-between m-5 p-5 md sticky">
          <div>
             <Link href='/'>
                   <Image 
                      src='/next.svg'
                      width={170}
                      height={65} 
-                     alt="Logo greenfy"/>
+                     alt="Logo greenfy"
+                  />
             </Link>
          </div>
          <ul className='flex flex-row justify-end items-center'>
