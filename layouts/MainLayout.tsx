@@ -8,7 +8,7 @@ const MainLayout = ({children}: any) => {
       <div className='flex flex-col bg-[#0f4146]'>
          <Navbar />
          <Navbaresponsive />
-         <main className='h-screen'>{children}</main>
+         <main className='h-sc'>{children}</main>
          <Footer />
       </div>
    )
