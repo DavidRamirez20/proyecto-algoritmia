@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <MainLayout>
       <section className='flex flex-row h-2/6'>
-        <div className='flex w-3/4 bg-green-800 mt-5 p-5'>
+        <div className='flex w-3/4 bg-[#196756] mt-5 p-5'>
           <Image 
             src='/Recycling_Isometric.svg'
             width={800}
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <></>
       </section>
-      <section className='flex flex-row-reverse h-2/6 bg-gray-100'>
+      <section className='flex flex-row-reverse h-2/6 bg-[#ddddd5]'>
         <div className='flex'>
           <Image 
             src='/Artifical inteligence_Isometric.svg'
@@ -29,42 +29,32 @@ export default function Home() {
             />
         </div>
         <div className='text-center'>
- 
         </div>
       </section>
-      <section className='flex h-2/6 bg-slate-200'>
-        <div className='flex'>
-          <ul className='flex flex-row content-center'>
-            <InfoCards
-              name='TUN'
-              image='/next.svg'
-              width={300}
-              height={260} 
-              detail='Trámite Único Notarial'
-              backGround='green'
-              backColor={500}
-            />
-            <InfoCards
-              name='TUN'
-              image='/next.svg'
-              width={300}
-              height={260} 
-              detail='Trámite Único Notarial'
-              backGround='green'
-              backColor={500}
-            
-            />
-            <InfoCards
-              name='TUN'
-              image='/next.svg'
-              width={300}
-              height={260} 
-              detail='Trámite Único Notarial'
-              backGround='green'
-              backColor={500}
-            />
-          </ul>
-        </div>
+      <section className='h-2/6 bg-[#196756] p-8'>
+        <ul className='flex flex-row justify-evenly mb-5'>
+          <InfoCards
+            name='phone'
+            image='/resultrecog3.png'
+            width={300}
+            height={200} 
+          />
+          <InfoCards
+            name='phone'
+            image='/resultrecog3.png'
+            width={300}
+            height={200}          
+          />
+          <InfoCards
+            name='phone'
+            image='/resultrecog3.png'
+            width={300}
+            height={200}
+          />
+        </ul>
+        <p className='py-1 px-5 lg:text-center text-justify font-serif text-gray-200 lg:text-lg'>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus facilis nostrum quae soluta non dolorum ea earum corporis minus alias accusantium tempora vero ex esse rem, voluptatum omnis sapiente mollitia!
+        </p>
       </section>
     </MainLayout>
   )
