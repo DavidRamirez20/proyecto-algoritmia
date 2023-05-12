@@ -18,7 +18,9 @@ const Navbar = () => {
             <Route name='Nosotros' route='/us'/>
             <Route name='Marcas' route='/trademarks'/>
             <li>
-               <button className='w-35 px-3 py-1 border border-slate-400 rounded-xl text-gray-300 font-bold shadow-md hover:shadow-lg hover:scale-105'>! A Reciclar !</button>
+               <Link href='/recyclepage'>
+                  <button className='w-35 px-3 py-1 border border-slate-400 rounded-xl text-gray-300 font-bold shadow-md hover:shadow-lg hover:scale-105'>! A Reciclar !</button>
+               </Link>
             </li>
          </ul>
       </nav>

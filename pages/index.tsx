@@ -13,18 +13,17 @@ export default function Home() {
           <Image 
             src='/Recycling_Isometric.svg'
             width={800}
-            height={1000} 
+            height={800}
             alt="Logo greenfy"
           />
         </div>
-        <></>
       </section>
-      <section className='flex flex-row-reverse h-2/6 bg-[#ddddd5]'>
-        <div className='flex'>
+      <section className='flex flex-row-reverse h-2/6 bg-[#ddddd5] p-10'>
+        <div className='flex mr-10'>
           <Image 
             src='/Artifical inteligence_Isometric.svg'
-            width={800}
-            height={1000}
+            width={600}
+            height={800}
             alt='Recycle'
             />
         </div>
