@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <MainLayout>
       <section className='flex flex-row h-2/6'>
-        <div className='flex w-3/4 bg-[#196756] mt-5 p-5'>
+        <div className='flex w-3/4 bg-[#196756] p-5'>
           <Image 
             src='/Recycling_Isometric.svg'
             width={800}

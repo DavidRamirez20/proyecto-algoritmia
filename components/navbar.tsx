@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
    return (
-      <nav className="hidden lg:flex flex-row justify-between m-5 p-5 md">
+      <nav className="hidden lg:flex flex-row justify-between p-10 md shadow-lg">
          <div>
             <Link href='/'>
                   <Image 
