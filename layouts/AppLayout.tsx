@@ -10,7 +10,6 @@ const AppLayout = ({children}: any) => {
             <Navbaresponsive />
             <main>{children}</main>
             <Footer />
-            <FooterRes />
         </div>
     )
 }

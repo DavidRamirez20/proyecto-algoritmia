@@ -1,15 +1,17 @@
+import CarouselMov from '@/components/Carousel'
 import InfoCards from '@/components/infoCards'
 import MainLayout from '@/layouts/MainLayout'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
+import { Carousel } from 'react-responsive-carousel'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home(document : any) {
   return (
     <MainLayout>
-      <section className='flex flex-row h-2/6'>
-        <div className='flex w-3/4 bg-[#196756] p-5'>
+      <section className='flex lg:flex-row flex-col-reverse h-2/6'>
+        <div className='flex lg:w-3/4 bg-[#196756] p-5 justify-center'>
           <Image 
             src='/Recycling_Isometric.svg'
             width={800}
@@ -17,16 +19,16 @@ export default function Home() {
             alt="Logo greenfy"
           />
         </div>
-        <div className='flex lg:flex-row flex-col-reverse items-center my-8 mx-16'>
+        <div className='flex lg:flex-row flex-col-reverse items-center lg:my-8 mx-16 lg:bg-[url("/PawPrint.png")] bg-no-repeat'>
           <ul className='flex flex-col'>
-              <li className='font-bold lg:text-6xl text-4xl font-cursive text-slate-50 text-center p-2'>GreenFy</li>
+              <li className='invisible lg:visible font-bold lg:text-6xl text-4xl font-cursive text-slate-50 text-center p-2'>GreenFy</li>
               <li className='font-semibold italic lg:text-4xl text-2xl text-green-100 text-center p-2'>Cuida el planeta, recicla con inteligencia.</li>
               <li className='font-semibold lg:text-2xl text-lg font-sans text-stone-200 italic text-end p-2'>con apoyo de intelegencia artificial</li>
           </ul>
         </div>
       </section>
-      <section className='flex flex-row-reverse h-2/6 bg-[#ddddd5] p-10'>
-        <div className='flex'>
+      <section className='flex flex-col-reverse lg:flex-row-reverse h-2/6 bg-[#ddddd5] p-10'>
+        <div className='flex justify-center'>
           <Image 
             src='/Artifical inteligence_Isometric.svg'
             width={600}
@@ -34,9 +36,9 @@ export default function Home() {
             alt='Recycle'
             />
         </div>
-        <div className='flex lg:flex-row flex-col-reverse items-center my-8 mx-16 w-3/5'>
+        <div className='flex lg:flex-row flex-col-reverse lg:my-8 lg:mx-16 lg:w-3/5'>
           <ul className='flex flex-col'>
-              <li className='font-bold lg:text-4xl text-2xl font-cursive text-green-50 text-left p-2'>
+              <li className='font-bold lg:text-4xl text-2xl font-cursive text-green-50 lg:text-left text-center p-2'>
                 Potenciando el reciclaje con Inteligencia Artificial: Una guía inteligente para un futuro sostenible
               </li>
               <li className='font-semibold italic lg:text-xl text-lg text-slate-600 text-justify p-2'>
@@ -47,9 +49,9 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <div className='h-2/6 bg-[#196756]'>
-        <div className='bg-[url("/Bush.png")] bg-cover'>
-          <ul className='flex flex-row justify-evenly items-center'>
+      <section className='h-2/6 bg-[#196756]'>
+        <div className='bg-[url("/Bush.png")] bg-cover overflow-hidden' data-value='1'>
+          <ul className='hidden lg:flex flex-row justify-evenly items-center'>
             <InfoCards
               name='phone'
               image='/resultrecog3.png'
@@ -69,13 +71,14 @@ export default function Home() {
               height={200}
             />
           </ul>
+          <CarouselMov />
         </div>
         <p className='py-2 px-5 lg:text-center text-justify font-serif text-gray-800 lg:text-lg bg-white/75'>
           Descubre la libertad de reciclar en cualquier momento y en cualquier lugar con nuestra aplicación de reciclaje: la herramienta fácil de 
           usar y compatible con todos los dispositivos que te permite aprender, practicar y contribuir activamente al cuidado del medio ambiente desde 
           la comodidad de tu teléfono móvil, tablet o computadora.
         </p>
-      </div>
+      </section>
     </MainLayout>
   )
 }

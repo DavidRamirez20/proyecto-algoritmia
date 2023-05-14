@@ -3,7 +3,7 @@ import AppLayout from "@/layouts/AppLayout";
 const RecyclePage = () => {
     return (
         <AppLayout>
-            <div>
+            <div className="bg-stone-100 h-screen">
                 
             </div>
         </AppLayout>

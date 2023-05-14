@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -18,7 +17,7 @@ const Footer = () => {
 const Route = ({route, name}: any) => {
    return (
       <Link href={route}>
-         <li className='lg:mr-16 font-bold text-gray-200 hover:text-gray-50 hover:cursor-pointer'>{name}</li>
+         <li className='lg:mr-16 mr-3 font-bold text-gray-200 hover:text-gray-50 hover:cursor-pointer'>{name}</li>
       </Link>
    )
 }
