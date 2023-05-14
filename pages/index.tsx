@@ -20,7 +20,7 @@ export default function Home(document : any) {
         </div>
         <div className='flex lg:flex-row flex-col-reverse items-center lg:my-8 mx-16 lg:bg-[url("/PawPrint.png")] bg-no-repeat'>
           <ul className='flex flex-col'>
-              <li className='invisible lg:visible font-bold lg:text-6xl text-4xl font-cursive text-slate-50 text-center p-2'>GreenFy</li>
+              <li className='hidden lg:block font-bold lg:text-6xl text-4xl font-cursive text-slate-50 text-center p-2'>GreenFy</li>
               <li className='font-semibold italic lg:text-4xl text-2xl text-green-100 text-center p-2'>Cuida el planeta, recicla con inteligencia.</li>
               <li className='font-semibold lg:text-2xl text-lg font-sans text-stone-200 italic text-end p-2'>con apoyo de intelegencia artificial</li>
           </ul>

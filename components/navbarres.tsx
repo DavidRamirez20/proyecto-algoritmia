@@ -21,7 +21,7 @@ const Navbaresponsive = () => {
             </Link>
          </div>
          {navegation && (
-            <ul className='mx-5 mb-2 py-2 flex flex-col border-green-100 rounded-lg shadow-inner'>
+            <ul className='mx-5 mb-2 py-2 flex flex-col rounded-lg shadow-2xl'>
                <Link href='/recyclepage'>
                   <li className='text-center'>
                      <i className="fas fa-light fa-recycle text-gray-200 pr-2"/>
