@@ -3,7 +3,6 @@ import InfoCards from '@/components/infoCards'
 import MainLayout from '@/layouts/MainLayout'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
-import { Carousel } from 'react-responsive-carousel'
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -1,5 +1,4 @@
 import Footer from "@/components/footer"
-import FooterRes from "@/components/footerres"
 import Navbar from "@/components/navbar"
 import Navbaresponsive from "@/components/navbarres"
 
