@@ -1,31 +1,34 @@
-from fastapi import FastAPI
+import shutil
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from pages.api.ObjectDetection.modelOD import detect_objects
+import boto3
+import base64
 
 app = FastAPI()
 
+if __name__ == '__main__':
+   import uvicorn
+   uvicorn.run(app, host='127.0.0.1', port=8000)
+
 app.add_middleware(
    CORSMiddleware,
-   allow_origins=["http://localhost:3000"],
+   allow_origins=["http://localhost:3000/recyclepage"],
    allow_credentials=True,
-   allow_methods=["GET", "POST", "PUT", "DELETE"],
+   allow_methods=["*"],
    allow_headers=["*"],
 )
 
-class ImageData(BaseModel):
+class ImageRequest(BaseModel):
    image: str
 
-@app.get('/main')
-async def upload_image(image_data: ImageData):
+@app.post('/main')
+async def upload_image(image: UploadFile = File(...)):
    try:
-      image_path = 'captured_image.jpg' 
-      with open('captured_image.jpg', 'wb') as f:
-         f.write(image_data.image.encode('utf-8'))
-      
-      detection_results = detect_objects(image_path)
-      
-      return {'message': 'Image uploaded successfully'}
-   
+      # Save the uploaded image
+      with open("image.jpg", "wb") as buffer:
+         shutil.copyfileobj(image.file, buffer)
+        
+      return {"message": "Image uploaded successfully"}
    except Exception as e:
-      return {"error": "Failed to upload and process image", "details": str(e)}
+      raise HTTPException(status_code=500, detail="Failed to upload image")

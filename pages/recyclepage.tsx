@@ -2,35 +2,27 @@ import AppLayout from "@/layouts/AppLayout";
 import React, { useRef, useState } from "react";
 import Webcam, { WebcamProps } from "react-webcam";
 import axios from "axios";
+import Image from 'next/image'
 
 const videoConstraints: WebcamProps['videoConstraints'] = {
     width: 580,
     height: 720,
-    facingMode: 'user',
+    facingMode: { exact: "environment" },
 };
 
 const RecyclePage = () => {
     const webcamRef = useRef<Webcam>(null);
-    const [capturedImage, setCapturedImage] = useState<string | undefined>(undefined);
 
-    const captureImage = (): void => {
+    const sendImageToBackend = async() => {
         const imageSrc = webcamRef.current?.getScreenshot();
-        if (imageSrc) {
-            setCapturedImage(imageSrc);
-
-            sendImageToBackend(imageSrc);
-        }
-    };
-
-    const sendImageToBackend = (imageData: string): void => {
-        axios
-        .post('http://127.0.0.1:8000/main', { image: imageData })
-        .then((response) => {
+        await axios
+          .post('http://127.0.0.1:8000/main', { image: imageSrc })
+          .then((response) => {
             console.log(response.data);
-        })
-        .catch((error) => {
+          })
+          .catch((error) => {
             console.error(error);
-        });
+          });
     };
 
     return (
@@ -50,10 +42,20 @@ const RecyclePage = () => {
                 <div className="flex justify-center">
                     <button
                         className="border border-stone-700 rounded-full p-5"
-                        onClick={captureImage}
+                        onClick={sendImageToBackend}
                     >
-                        <i className="fas fa-light fa-camera text-5xl"></i>
+                        <i className="fas fa-camera text-5xl"></i>
                     </button>
+                </div>
+                <div className="flex">
+                    <p>Tu residuo va aquí</p>
+                    <Image 
+                        src=''
+                        width={800}
+                        height={800}
+                        alt="Logo greenfy"
+                    />
+                    <p>{}</p>
                 </div>
             </section>
         </AppLayout>
