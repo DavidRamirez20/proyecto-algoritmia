@@ -9,7 +9,6 @@ const MainLayout = ({children}: any) => {
          <Navbar />
          <Navbaresponsive />
          <main className='h-sc'>{children}</main>
-         <Footer />
       </div>
    )
 };

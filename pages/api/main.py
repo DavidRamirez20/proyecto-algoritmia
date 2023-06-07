@@ -1,34 +1,38 @@
-import shutil
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-import boto3
 import base64
+from ObjectDetection.classificate import classifyF
 
 app = FastAPI()
 
 if __name__ == '__main__':
    import uvicorn
    uvicorn.run(app, host='127.0.0.1', port=8000)
+   
+origins = ["http://localhost:3000","https://greenfy.vercel.app/"]
 
 app.add_middleware(
    CORSMiddleware,
-   allow_origins=["http://localhost:3000/recyclepage"],
+   allow_origins=origins,
    allow_credentials=True,
    allow_methods=["*"],
    allow_headers=["*"],
 )
 
-class ImageRequest(BaseModel):
-   image: str
+class ImagePayload(BaseModel):
+   imageSrc: str
 
-@app.post('/main')
-async def upload_image(image: UploadFile = File(...)):
-   try:
-      # Save the uploaded image
-      with open("image.jpg", "wb") as buffer:
-         shutil.copyfileobj(image.file, buffer)
-        
-      return {"message": "Image uploaded successfully"}
-   except Exception as e:
-      raise HTTPException(status_code=500, detail="Failed to upload image")
+
+@app.post("/")
+async def upload_image(payload: ImagePayload):
+   imageData = base64.b64decode(payload.imageSrc.split(",")[1])
+   
+   with open("uploaded_image.jpg", "wb") as f:
+      f.write(imageData)
+   return {"message": "Image uploaded successfully", 'image' : imageData}
+
+@app.post("/result")
+async def sendResult():
+   resultp = classifyF()
+   return { 'result' : resultp }
